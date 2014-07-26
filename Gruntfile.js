@@ -15,6 +15,8 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    require('grunt-crx')(grunt);
+
     // Configurable paths
     var config = {
         app: 'app',
@@ -242,6 +244,15 @@ module.exports = function (grunt) {
                         'styles/fonts/{,*/}*.*',
                         '_locales/{,*/}*.json',
                     ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>',
+                    src: [
+                        'scripts/*.js',
+                        'bower_components/jQuery/dist/jquery.js'
+                    ]
                 }]
             }
         },
@@ -291,6 +302,14 @@ module.exports = function (grunt) {
                     dest: ''
                 }]
             }
+        },
+
+        crx: {
+            myPublicPackage: {
+                "src": '<%= config.dist %>/',
+                "dest": 'package/crx/',
+                "privateKey": "disable-merge-for-gitbucket.pem"
+            }
         }
     });
 
@@ -318,7 +337,8 @@ module.exports = function (grunt) {
         'uglify',
         'copy',
         'usemin',
-        'compress'
+        'compress',
+        'crx'
     ]);
 
     grunt.registerTask('default', [

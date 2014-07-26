@@ -2,7 +2,7 @@
   "name": "disable-merge-for-gitbucket",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jQuery": "~2.1.1"
   },
   "devDependencies": {}
 }
