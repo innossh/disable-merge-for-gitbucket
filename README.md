@@ -1,0 +1,2 @@
+disable-merge-for-gitbucket
+===========================
