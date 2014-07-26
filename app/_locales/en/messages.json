@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Disable Merge for GitBucket",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "You can't merge pull request in GitBucket.",
+    "description": "The description of the application"
+  }
+}
