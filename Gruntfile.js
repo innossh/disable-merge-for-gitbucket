@@ -281,7 +281,7 @@ module.exports = function (grunt) {
                 options: {
                     archive: function() {
                         var manifest = grunt.file.readJSON('app/manifest.json');
-                        return 'package/Disable Merge for GitBucket-' + manifest.version + '.zip';
+                        return 'package/disable-merge-for-gitbucket-' + manifest.version + '.zip';
                     }
                 },
                 files: [{
