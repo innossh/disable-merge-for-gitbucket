@@ -1,0 +1,6 @@
+(function() {
+    'use strict';
+    var myHostConfig = {};
+    module.exports = myHostConfig
+    myHostConfig.matchUrl = 'http://hoge.gitbucket.sample/*/*/pull/*'
+}());

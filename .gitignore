@@ -8,3 +8,4 @@ test/bower_components
 package
 
 disable-merge-for-gitbucket.pem
+myhostconfig.js

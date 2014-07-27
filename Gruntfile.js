@@ -15,13 +15,12 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    require('grunt-crx')(grunt);
-
     // Configurable paths
     var config = {
         app: 'app',
         dist: 'dist'
     };
+    var myHostConfig = require('./myhostconfig.js');
 
     grunt.initConfig({
 
@@ -279,6 +278,24 @@ module.exports = function (grunt) {
                         exclude: [
                             'scripts/chromereload.js'
                         ]
+                    },
+                    overwrite: {
+                        'content_scripts': [
+                            {
+                                'matches': [
+                                    myHostConfig.matchUrl,
+                                ],
+                                'css': [
+                                    'styles/main.css'
+                                ],
+                                'js': [
+                                    'bower_components/jQuery/dist/jquery.js',
+                                    'scripts/contentscript.js'
+                                ],
+                                'run_at': 'document_end',
+                                'all_frames': false
+                            }
+                        ]
                     }
                 },
                 src: '<%= config.app %>',
@@ -306,9 +323,9 @@ module.exports = function (grunt) {
 
         crx: {
             myPublicPackage: {
-                "src": '<%= config.dist %>/',
-                "dest": 'package/crx/',
-                "privateKey": "disable-merge-for-gitbucket.pem"
+                'src': '<%= config.dist %>/',
+                'dest': 'package/crx/',
+                'privateKey': 'disable-merge-for-gitbucket.pem'
             }
         }
     });
