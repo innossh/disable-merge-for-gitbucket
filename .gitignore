@@ -9,3 +9,9 @@ package
 
 disable-merge-for-gitbucket.pem
 myhostconfig.js
+
+.DS_Store
+
+*~
+\#*
+.\#*
