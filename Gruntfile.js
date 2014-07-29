@@ -144,7 +144,6 @@ module.exports = function (grunt) {
                 dest: '<%= config.dist %>'
             },
             html: [
-                '<%= config.app %>/popup.html',
                 '<%= config.app %>/options.html'
             ]
         },
@@ -273,12 +272,6 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     buildnumber: true,
-                    background: {
-                        target: 'scripts/background.js',
-                        exclude: [
-                            'scripts/chromereload.js'
-                        ]
-                    },
                     overwrite: {
                         'content_scripts': [
                             {
